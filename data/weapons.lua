@@ -716,6 +716,11 @@ return {
 			weight = 600,
 			throwable = true,
 		},
+		['WEAPON_PAINTBALL'] = {
+			label = 'Paintball',
+			weight = 3400,
+			durability = 0.03,
+		},
 	},
 
 	Components = {
@@ -1876,5 +1881,6 @@ return {
 			label = 'EMP round',
 			weight = 400,
 		},
+
 	}
 }

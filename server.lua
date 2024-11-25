@@ -657,3 +657,25 @@ lib.addCommand('viewinv', {
 }, function(source, args)
 	Inventory.InspectInventory(source, tonumber(args.invId) or args.invId)
 end)
+
+
+--------------------------------------- item drop prop ---------------------------------------
+
+exports.ox_inventory:registerHook("swapItems", function(payload)
+    if payload.toInventory ~= "newdrop" then return end
+    local item = payload.fromSlot
+    local items = {{item.name, payload.count}}
+    local dropId = exports.ox_inventory:CustomDrop(item.label, items, GetEntityCoords(GetPlayerPed(payload.source)), 50, 30000, nil, Config.dropItems[item.name])
+    if not dropId then return end
+    CreateThread(function()
+        exports.ox_inventory:RemoveItem(payload.source, item.name, item.count, nil, item.slot)
+        Wait(0)
+        local coords = GetEntityCoords(GetPlayerPed(payload.source))
+        print("Creating drop at coords:", coords)
+        exports.ox_inventory:forceOpenInventory(payload.source, "drop", dropId)
+    end)
+    return false
+end, {
+    itemFiter = Config.dropItems,
+    typeFilter = {player = true}
+})

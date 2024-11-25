@@ -106,7 +106,13 @@ else
     ignoreweapons[`WEAPON_GARBAGEBAG`] = true
     ignoreweapons[`OBJECT`] = true
     ignoreweapons[`WEAPON_HOSE`] = true
-
+    ignoreweapons[`WEAPON_FIREHOSE`] = true
+    ignoreweapons[`WEAPON_SPREADER`] = true
+    ignoreweapons[`WEAPON_CUTTER`] = true
+    ignoreweapons[`WEAPON_GLASSMASTER`] = true
+    ignoreweapons[`WEAPON_FOAMBRANCH`] = true
+    ignoreweapons[`WEAPON_REELBRANCH`] = true
+    
     client.ignoreweapons = ignoreweapons
 end
 
