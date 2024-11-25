@@ -5,6 +5,8 @@ require 'modules.crafting.server'
 require 'modules.shops.server'
 require 'modules.pefcl.server'
 
+local Config = require 'Config'
+
 if GetConvar('inventory:versioncheck', 'true') == 'true' then
 	lib.versionCheck('overextended/ox_inventory')
 end
